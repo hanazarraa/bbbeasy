@@ -20,13 +20,29 @@ declare(strict_types=1);
  * with Hivelvet; if not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Enum\Presets;
+namespace Fake;
 
-use Enum\Enum;
+use Faker\Factory as Faker;
+use Models\PresetSetting;
 
-class Screenshare extends Enum
+class PresetSettingsFaker
 {
-    public const CONFIGURABLE = 'configurable';
+    private static array $storge = [];
 
-    public const CONFIGURABLE_TYPE = 'bool';
+    public static function create($storageName = null)
+    {
+        $faker          = Faker::create();
+        $PresetSettings = new PresetSetting();
+
+        $PresetSettings->group   = $faker->sentence;
+        $PresetSettings->name    = $faker->name;
+        $PresetSettings->enabled = $faker->boolean;
+        $PresetSettings->save();
+
+        if (null !== $storageName) {
+            self::$storge[$storageName] = $PresetSettings;
+        }
+
+        return $PresetSettings;
+    }
 }

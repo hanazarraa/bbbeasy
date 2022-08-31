@@ -35,6 +35,7 @@ final class ReflectionTest extends Scenario
 
     protected array $permissions = [
         'logs'              => ['collect'],
+        'presets'           => ['add', 'delete', 'edit'],
         'roles_permissions' => ['collect'],
         'roles'             => ['add', 'collect', 'delete', 'edit', 'index'],
         'users'             => ['add', 'delete', 'edit', 'index'],
@@ -51,5 +52,6 @@ final class ReflectionTest extends Scenario
         $test->expect($this->permissions === PrivilegeUtils::listSystemPrivileges(), 'Permissions correctly configured in action classes');
 
         return $test->results();
+        // dump(PrivilegeUtils::listSystemPrivileges());
     }
 }

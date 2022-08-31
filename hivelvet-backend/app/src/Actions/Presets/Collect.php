@@ -24,7 +24,6 @@ namespace Actions\Presets;
 
 use Actions\Base as BaseAction;
 use Base;
-use Models\PresetSetting;
 
 /**
  * Class Collect.
@@ -67,7 +66,7 @@ class Collect extends BaseAction
                     'name'          => $categoryName,
                     'subcategories' => [],
                 ];
-                 $subCategories = $modelInstance::values();
+                $subCategories = $modelInstance::values();
                 foreach ($subCategories as $subCategory) {
                     $subCategory     = ucfirst(str_replace('_', ' ', $subCategory));
                     $subCategoryData = [
@@ -84,5 +83,4 @@ class Collect extends BaseAction
         $this->logger->debug('collecting presets', ['data' => json_encode($data)]);
         $this->renderJson($data);
     }
-
 }
