@@ -20,13 +20,20 @@ declare(strict_types=1);
  * with Hivelvet; if not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Enum\Presets;
+namespace Suite;
 
-use Enum\Enum;
+use Actions\Presets\AddTest;
+use Actions\Presets\DeleteTest;
+use Actions\Presets\EditTest;
+use Test\TestGroup;
 
-class Screenshare extends Enum
+/**
+ * @internal
+ * @coversNothing
+ */
+final class PresetsActionsTest extends TestGroup
 {
-    public const CONFIGURABLE = 'configurable';
+    protected $classes = [AddTest::class, DeleteTest::class, EditTest::class];
 
-    public const CONFIGURABLE_TYPE = 'bool';
+    protected $quiet = true;
 }

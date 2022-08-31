@@ -25,9 +25,7 @@ namespace Actions\Presets;
 use Actions\Delete as DeleteAction;
 use Actions\RequirePrivilegeTrait;
 use Enum\ResponseCode;
-use Enum\UserStatus;
 use Models\Preset;
-use Models\User;
 
 /**
  * Class Delete.
@@ -38,12 +36,10 @@ class Delete extends DeleteAction
 
     public function execute($f3, $params): void
     {
-        $preset   = new Preset();
+        $preset    = new Preset();
         $preset_id = $params['id'];
         $preset->load(['id = ?', $preset_id]);
         if ($preset->valid()) {
-
-
             try {
                 $preset->erase();
             } catch (\Exception $e) {
@@ -54,7 +50,7 @@ class Delete extends DeleteAction
                 return;
             }
             $this->logger->info('preset successfully deleted', ['preset' => $preset_id]);
-            $this->renderJson(['result' => 'preset successfully deleted' ]);
+            $this->renderJson(['result' => 'preset successfully deleted']);
         } else {
             $this->renderJson([], ResponseCode::HTTP_NOT_FOUND);
         }

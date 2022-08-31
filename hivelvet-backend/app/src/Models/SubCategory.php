@@ -31,7 +31,7 @@ use Models\Base as BaseModel;
  * @property int      $id
  * @property string   $name
  * @property string   $type
- * @property int     $category_id
+ * @property int      $category_id
  * @property DateTime $created_on
  * @property DateTime $updated_on
  */
@@ -44,11 +44,10 @@ class SubCategory extends BaseModel
         return [
             'key'         => $this->id,
             'name'        => $this->name,
-            'category_id'    =>$this->category_id,
-
-
+            'category_id' => $this->category_id,
         ];
     }
+
     /**
      * @return $this
      */
@@ -58,17 +57,21 @@ class SubCategory extends BaseModel
 
         return $this;
     }
+
     public function nameExists($name)
     {
         return $this->load(['name = ?', $name]);
     }
+
     public function categoryExists($category_id)
     {
         return $this->load(['category_id = ?', $category_id]);
     }
+
     public function findByCategory($category_id)
     {
-      $this->load(['category_id = ?', $category_id]);
-      return $this;
+        $this->load(['category_id = ?', $category_id]);
+
+        return $this;
     }
 }

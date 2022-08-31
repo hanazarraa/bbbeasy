@@ -54,7 +54,7 @@ class UserFaker
             $role = array_rand(UserRole::values());
         }
         $user->role_id  = UserRole::LECTURER_ID;
-        $user->password = $role;
+        $user->password = $faker->password;
         if (UserRole::ADMINISTRATOR === $role) {
             $user->role_id  = UserRole::ADMINISTRATOR_ID;
             $user->password = $role . $role;
