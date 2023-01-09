@@ -78,7 +78,7 @@ class BigBlueButtonRequester extends BigBlueButton
         $this->logger->info('Forwarding the BigBlueButton request to server.', ['verb' => $verb, 'path' => $path]);
 
         if ($redirect) {
-            return $this->f3->reroute($url);
+            return $url;
         }
 
         return \Web::instance()->request($url, $options);

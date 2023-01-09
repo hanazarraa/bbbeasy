@@ -40,6 +40,20 @@ class RoomsService {
     delete_room(id: number) {
         return axiosInstance.delete(apiRoutes.DELETE_ROOM_URL + id);
     }
+    getRoomByLink(link: string) {
+        return axiosInstance.get(apiRoutes.GET_ROOM_BY_LINK + link);
+    }
+    start_room(id: number) {
+        return axiosInstance.get(apiRoutes.START_ROOM_URL + id);
+        // return window.location.replace("https://lb-demo.riadvice.tn/bigbluebutton/api/join?fullName=User+931289&meetingID=random-8875110&password=mp&redirect=true&checksum=6334420dbcf56054f22c83323b0e025ee752fe0b")
+        //  return axiosInstance.get("https://lb-demo.riadvice.tn/bigbluebutton/api/join?fullName=User+931289&meetingID=random-1661405&password=mp&redirect=true&checksum=6334420dbcf56054f22c83323b0e025ee752fe0b");
+    }
+    join_room(id: number) {
+        return axiosInstance.get(apiRoutes.JOIN_ROOM_URL + id);
+    }
+    get_meeting_infos(id: number) {
+        return axiosInstance.get(apiRoutes.GET_MEETING_INFO_URL + id);
+    }
 }
 
 export default new RoomsService();

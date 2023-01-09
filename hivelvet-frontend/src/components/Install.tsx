@@ -105,7 +105,7 @@ const Install = () => {
         SettingsService.collect_settings()
             .then((response) => {
                 const settings: SettingsType = response.data;
-                if (settings) {
+                 if (settings) {
                     stepForm.setFieldsValue({
                         company_name: settings.company_name,
                         company_url: settings.company_website,

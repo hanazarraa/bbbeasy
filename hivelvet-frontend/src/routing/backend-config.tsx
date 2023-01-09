@@ -64,4 +64,8 @@ export const apiRoutes = {
     ADD_ROOM_URL: API_URL + '/rooms',
     EDIT_ROOM_URL: API_URL + '/rooms/',
     DELETE_ROOM_URL: API_URL + '/rooms/',
+    START_ROOM_URL: API_URL + '/rooms/start/',
+    JOIN_ROOM_URL: API_URL + '/rooms/join/',
+    GET_ROOM_BY_LINK: API_URL + '/rooms/get/',
+    GET_MEETING_INFO_URL: API_URL + '/rooms/meeting_info/',
 };

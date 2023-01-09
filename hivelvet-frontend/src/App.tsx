@@ -75,6 +75,7 @@ const App: React.FC<IProps> = ({ routes, isSider, logs }) => {
     const getRooms = (userId: number) => {
         RoomsService.list_rooms(userId)
             .then((response) => {
+             
                 setDataRooms(response.data);
             })
             .catch((error) => {
@@ -94,6 +95,7 @@ const App: React.FC<IProps> = ({ routes, isSider, logs }) => {
         PresetsService.list_presets(userId)
             .then((response) => {
                 setDataPresets(response.data);
+             
             })
             .catch((error) => {
                 console.log(error);
@@ -115,6 +117,7 @@ const App: React.FC<IProps> = ({ routes, isSider, logs }) => {
                     Logger.info(logs);
                 }
                 if (AuthService.isAllowedGroup(allowedGroups, 'rooms')) {
+                   
                     getRooms(user.id);
                 }
                 if (AuthService.isAllowedGroup(allowedGroups, 'labels')) {

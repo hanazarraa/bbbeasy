@@ -287,6 +287,7 @@
     "linkedin_share": "Share on linkedIn",
     "email_share": "Send by email",
     "start": "Start",
+    "join": "Join",
     "room_ppts": "Room presentations",
     "upload": "Upload",
     "room_recordings": "Room recordings",
@@ -299,5 +300,6 @@
     "edit_room_success": "Room successfully updated",
 
     "update_profile": "Update Profile",
-    "change_avatar": "Change Avatar"
+    "change_avatar": "Change Avatar",
+    "meeting_not_started": "The meeting has not started yet"
 }

@@ -70,7 +70,7 @@ export const AddRoomForm = (props: Props) => {
         roomsService
             .add_room(formValues, authService.getCurrentUser().id)
             .then((response) => {
-                console.log(response);
+              
                 Notifications.openNotificationWithIcon('success', t('add_room_success'));
 
                 dataContext.setDataRooms([...dataContext.dataRooms, response.data.room]);
